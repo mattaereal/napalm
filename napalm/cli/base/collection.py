@@ -49,8 +49,9 @@ def show(ctx, collection: str):
     tool_rules["semgrep"] = semgrep_rules
 
     for detector in detectors:
+        short_description = detector.short_description.rstrip('\n')
         console.print(
-            f"[blue]{detector.id}[/blue] - [{detector.severity}] [green]{detector.short_description.rstrip('\n')}[/green]"
+            f"[blue]{detector.id}[/blue] - [{detector.severity}] [green]{short_description}[/green]"
         )
 
     # summary

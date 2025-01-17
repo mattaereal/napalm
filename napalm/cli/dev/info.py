@@ -39,9 +39,10 @@ def _print_terminal_report(package_name, collections):
     for collection in collections:
         console.print(f"\n[cyan]{collection.collection_name}[/cyan] modules:")
         for detector in collection.detectors:
+            short_description = detector.short_description.rstrip('\n')
             console.print(
                 f"  - [blue]{detector.id}[/blue] - [{detector.severity}]"
-                f" [green]{detector.short_description.rstrip('\n')}[/green]"
+                f" [green]{short_description}[/green]"
             )
 
 
@@ -66,8 +67,9 @@ def _print_markdown_report(package_name, collections):
         console.print(f"  | ID | Description | Severity |")
         console.print(f"  | ------ | ----------- | -------- |")
         for detector in collection.detectors:
+            short_description = detector.short_description.rstrip('\n')
             console.print(
-                f"  | {detector.id} | {detector.short_description.rstrip('\n')} | {detector.severity} |"
+                f"  | {detector.id} | {short_description} | {detector.severity} |"
             )
 
 

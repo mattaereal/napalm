@@ -26,6 +26,7 @@ class SimpleReporter:
         # print all issues found
         for run in report.runs:
             for finding in run.results:
+                message = finding.message.text.rstrip('\n')
                 console.print(
-                    f"[red]Found issue: {finding.message.text.rstrip('\n')}[/red]"
+                    f"[red]Found issue: {message}[/red]"
                 )
